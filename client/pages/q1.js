@@ -4,6 +4,10 @@ const Questions = () => {
 
   const [currentQuestion, setCurrentQuestion] = useState(1);
 
+  // const handleEasyAsian = (event) => {
+  //   updateFormData({ easyAsian: event.target.value })
+  // }
+
   // useEffect(() => {
   //   const timer = setTimeout(
   //     function () {
