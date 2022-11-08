@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Home() {
   return (
     <div className='block mt-40'>
-     <p className='text-white text-6xl text-center relative item-center'> Welcome to Eyewitness Testimony</p>
+     <p className='text-white text-6xl text-center relative item-center'>Eyewitness Testimony</p>
     </div>
   );
 }
