@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     setFormData({...formData, ...newData});
   };
   return <div>
-  <Navbar/>
+  {/* <Navbar/> */}
   <Component {...pageProps} updateFormData={updateFormData} />
   </div>
 };

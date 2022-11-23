@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { useState } from 'react';
 import Questions from './questions'
-import {Data} from '../components/data/survey'
 import Intro from './intro';
+import Sample from './sample';
+import EndOfSample from './endOfSample';
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
 
   const [response, onResponseChange] = useState(initialResponse);
   const [started, onStart] = useState(false);
+  const [showSample, setShowSample] = useState(false);
 
   const handleNameChange = (event) => {
     onResponseChange({ ...response, "name": event.target.value });
@@ -53,8 +55,7 @@ export default function Home() {
       .catch(err => console.error(err));
     console.log("completed");
   }
-
-  return !started ? (
+  return !started ? ( showSample ? (<Sample started={started} onStart={onStart}/>) : (
     <div>
       <div>
         <Head>
@@ -64,23 +65,12 @@ export default function Home() {
         </Head>
       </div>
       <Intro/>
-      <div className='text-3xl text-white bg-red relative top-10'>
-        <div>
-            <div className='w-fit mx-auto'>
-              <p className='my-3' >Name:</p>
-              <input name="name" type="text" className='w-[420px] text-black bg-gray-300' onChange={handleNameChange} />
-              <p className='my-3'>CWID:</p>
-              <input name="cwid" type="number" className='w-[420px] text-black bg-gray-300' onChange={handleCWIDChange} />
-              <p className='my-3'>Race:</p>
-              <input name="race" type="text" className='w-[420px] text-black bg-gray-300' onChange={handleRaceChange} />
-            </div>
-        </div>
-      </div>
-      <div className='w-fit mx-auto'>
-        <button className="realtive mt-20 text-white bg-blue-500 px-6 py-1 rounded-md" onClick={() => onStart(true)}>
-          Start
-        </button>
+      <div className="w-fit mx-auto mb-8">
+            <button className="bg-yellow-500 px-2 py-1 rounded-md text-md hover:bg-yellow-600"
+            onClick={() => setShowSample(true)}>
+              Continue
+            </button>
       </div>
     </div>
-  ) : (<Questions onQuestionResponse={onQuestionReponse} onComplete={onComplete} />);
+  )) : (<Questions onQuestionResponse={onQuestionReponse} onComplete={onComplete} />);
 }
