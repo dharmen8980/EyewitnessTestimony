@@ -1,17 +1,10 @@
 import '../styles/globals.css'
-import Navbar from '../components/Navbar'
-import {useState} from 'react'
-
-
 
 function MyApp({ Component, pageProps }) {
-  const [formData, setFormData] = useState({});
-  const updateFormData = (newData) => {
-    setFormData({...formData, ...newData});
-  };
+  let credit = "Created by: Dharmendra Sharma";
   return <div>
-  {/* <Navbar/> */}
-  <Component {...pageProps} updateFormData={updateFormData} />
+    <p className='text-white fixed right-3 bottom-5'>{credit}</p>
+  <Component {...pageProps}/>
   </div>
 };
 

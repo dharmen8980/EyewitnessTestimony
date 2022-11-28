@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { SurveyQuestions } from "../components/data/survey";
 
 const createQuestions = (questions, onQuestionResponse) => {
-  console.log("here");
   return questions.map((question) => (
     <Question
       key={question.id}
@@ -23,7 +22,7 @@ const Questions = ({ onQuestionResponse, onComplete }) => {
       } else {
         setCurrentQuestion(currentQuestion + 1);
       }
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer);
   });
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Questions = ({ onQuestionResponse, onComplete }) => {
+const QuestionsT = ({ onQuestionResponse, onComplete }) => {
   const [currentQuestion, setCurrentQuestion] = useState();
 
   useEffect(() => {
@@ -201,4 +201,4 @@ const Question4 = ({ show, onAnswer }) => {
   );
 };
 
-export default Questions;
+export default QuestionsT;
