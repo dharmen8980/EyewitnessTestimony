@@ -1,35 +1,5 @@
-name,cwid,race,q1,q2,q3,q4,q5,q6,q7,q8
-test,323,asian
-test,323,asian
-test,323,asian
-test,323,asian
-test,323,asian
-Eyewitness,345,adff,no,yes,no,no,no,no,no,no
-sdf,3242,sf,yes,no,no,no,no,no,no,no
-Dharmendra,30123138,Asian,yes,no,no,no,no,no,no,no
-test,2525,hello,yes,no,no,no,no,no,no,no
-test1,1234,black,yes,no,no,no,no,no,no,no
-adf,324,fssfd,yes,no,no,no,no,no,no,no
-rtttert,4444,fadfafadf,yes,no,no,no,no,no,no,no
-as,2332,jjjj,yes,no,no,no,no,no,no,no
-dfgg,435,dgdg,no,no,no,no,no,no,no,no
-dfsdf,55,887,no,yes,yes,yes,yes,no,no,no
-sgd,4454,ggj,no,yes,no,no,no,no,no,no
-dfad,342,sdf,yes,no,yes,yes,yes,no,no,no
-sfaf,3434,fsfaf,no,no,yes,no,no,no,no,no
-test5,4545,Ameri,yes,yes,yes,no,yes,no,no,no
-test6,6565,us,yes,yes,yes,no,no,no,no,no
-Prabin,30123135,Asian,no,yes,yes,yes,yes,no,no,no
-af,24,234,no,no,no,no,no,no,no,no
-Nirmal,30148180,Asian,no,no,yes,no,no,no,no,no
-Nirmal,3031225,Asian,yes,no,no,no,no,no,no,no
-test6,5202,us,no,no,no,no,no,no,no,no
-Eyewitness,342,242,yes,yes,yes,yes,yes,no,no,no
-test8,777,jhg,no,no,no,no,no,no,no,no
-test5,888,00,no,yes,no,no,no,no,no,no
-erwe,342,sff,yes,no,no,no,no,no,no,no
-sdrsr,5456,gggg,yes,no,yes,no,no,no,no,no
-ad,22,dff,yes,no,yes,no,no,no,no,no
-dasd,342,sfdf,yes,yes,yes,yes,yes,no,no,no
-er,34,sf,no,no,no,no,no,no,no,no
-faddf,343,afdf,yes,yes,yes,yes,no,no,no,no
+name,gender,age,ethnicity,sample,q1,q2,q3,q4,q5,q6
+sd,cisgender men,32,black,[object Object],yes,yes,yes,yes,yes,yes
+df,cisgender men,3,white,yes,yes,yes,yes,yes,yes
+Apple,cisgender men,5,asian, other pacific islander,yes,yes,no,no,no,no
+,,,,no,no,no,no,no,no

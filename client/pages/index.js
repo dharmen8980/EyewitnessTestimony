@@ -3,7 +3,6 @@ import { useState } from "react";
 import Intro from "./intro";
 import Sample from "./sample";
 import Agreement from "./Agreement";
-import Questions from "./questions";
 import FirstQuestion from "./firstQuestion";
 import SecondQuestion from "./secondQuestion";
 import ThirdQuestion from "./thirdQuestion";
@@ -12,15 +11,9 @@ import FourthQuestion from "./fourthQuestion";
 export default function Home() {
   const initialResponse = {
     name: "",
-    gender: "",
-    age: "",
+    age: 0,
     ethnicity: "",
-    q1: "no",
-    q2: "no",
-    q3: "no",
-    q4: "no",
-    q5: "no",
-    q6: "no",
+    gender:"",
   };
 
   const [response, onResponseChange] = useState(initialResponse);
@@ -33,28 +26,9 @@ export default function Home() {
     onResponseChange({ ...response, [questionId]: value });
   };
 
-  const [surveyFinished, setSurveyFinished] = useState(false);
-  const onComplete = () => {
-    fetch("http://10.0.0.53:8080", {
-      method: "POST",
-      body: JSON.stringify(response),
-      headers: { "Content-Type": "application/json"},
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        globalThis.location = "/last";
-      })
-      .catch((err) => console.error(err));
-    console.log("completed");
-  };
-
-
-
   return !startedSurvey ? (
     showSample ? (
-      <Sample startedSurvey={startedSurvey} onStartSurvey={onStartSurvey}
-       onQuestionResponse={onQuestionResponse} onComplete={onComplete} />
+      <Sample onStartSurvey={onStartSurvey}/>
     ) : (
       <div>
         <div>
@@ -71,11 +45,10 @@ export default function Home() {
     )
   ) : (
     <>
-        <FirstQuestion onQuestionResponse={onQuestionResponse} onComplete={onComplete} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
-        <SecondQuestion onQuestionResponse={onQuestionResponse} onComplete={onComplete} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
-        <ThirdQuestion onQuestionResponse={onQuestionResponse} onComplete={onComplete} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
-        <FourthQuestion onQuestionResponse={onQuestionResponse} onComplete={onComplete} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
-
+        <FirstQuestion response={response} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
+        <SecondQuestion response={response} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
+        <ThirdQuestion response={response} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
+        <FourthQuestion response={response} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
     </>
   );
 };

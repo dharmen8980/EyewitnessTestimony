@@ -7,9 +7,9 @@ const fs = require('fs');
 const cors = require('cors');
 
 app.use(cors());
-router.get('/', function (req, res) {
-  res.json({ "name": "shiv" });
-});
+// router.get('/', function (req, res) {
+//   res.json({ "name": "shiv" });
+// });
 
 router.post('/', function (req, res) {
   const data = req.body;
@@ -30,7 +30,6 @@ router.post('/', function (req, res) {
 
 app.use(bodyParser());
 app.use('/', router);
-
 
 let server = app.listen(8080, function () {
   console.log("App server is running on port 8080");
