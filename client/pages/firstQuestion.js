@@ -48,8 +48,8 @@ const FirstQuestion = ({ questionNumber, setQuestionNumber, response }) => {
   };
 
   //post the data to the database
-  const submitData = () => {
-    Axios.post("http://localhost:8080/api/insert/AfricanAmerican", {
+  const submitData = async () => {
+    await Axios.post("http://localhost:8080/api/insert/AfricanAmerican", {
       name: data.name,
       age: data.age,
       ethnicity: data.ethnicity,

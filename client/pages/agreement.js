@@ -1,8 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, {useState} from "react";
 
 const Agreement = ({recordInfo, setRecordInfo}) => {
-  
   const [contract, setContract] = useState("");
   const [display, setDisplay] = useState(true);
 
