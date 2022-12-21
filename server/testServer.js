@@ -51,6 +51,7 @@ dblocal.connect(function (err) {
 
 app.post("/api/insert/AfricanAmerican", (req, res) => {
   const name = req.body.name;
+  console.log(name);
   const age = req.body.age;
   const ethnicity = req.body.ethnicity;
   const gender = req.body.gender;
@@ -70,17 +71,41 @@ app.post("/api/insert/AfricanAmerican", (req, res) => {
   const sqlInsert =
     "INSERT INTO AfricanAmerican (Name, Age, Ethnicity, Gender, option1, option1Confidence, option2, option2confidence, option3, option3Confidence, option4, option4Confidence, option5, option5Confidence, option6, option6Confidence) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   dblocal.query(sqlInsert, [name, age, ethnicity, gender, option1, option1Confidence, option2, option2Confidence, option3, option3Confidence, option4, option4Confidence, option5, option5Confidence, option6, option6Confidence, (err, result) => {}]);
+  res.send("success");
   console.log("success");
 });
 
-app.get("/api/get", (req, res) => {
-  const sqlSelect = "SELECT * FROM movieReview;";
-  db.query(sqlSelect, (err, result) => {
-    res.send(result);
+app.post("/api/verify", (req, res) => {
+  const user = req.body.user;
+  console.log(user);
+  const pwd = req.body.password;
+  console.log(pwd);
+  const sqlSelect = "SELECT password FROM admin where username = ?;";
+  dblocal.query(sqlSelect,[user],(err, result) => {
     console.log(result);
+    if(result.length > 0) {
+      if(pwd == result[0].password){
+        res.send("success")
+        console.log("success");
+        }
+      else {
+        res.send("failure");
+        console.log("failure");
+      }
+    }
+     else {
+        res.send("failure");
+        console.log("failure");
+      }
   });
 });
 
+app.get("/api/get/AfricanAmerican", (req, res) => {
+  const sqlSelect = "SELECT * FROM AfricanAmerican";
+  dblocal.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
 app.listen(8080, () => {
   console.log("running on port 8080");
 });
